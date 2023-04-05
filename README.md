@@ -11,3 +11,8 @@
 - `terraform init`
 - `terraform plan`
 - `terraform apply`
+
+### backend and frontend deployments
+
+- Deploying a BookApp application created using NodeJS and ReactJS \\
+  deployment is done using docker for frontend and backend
