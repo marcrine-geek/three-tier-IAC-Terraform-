@@ -6,4 +6,4 @@ sudo apt update
 # apt-cache policy docker-ce
 sudo apt install docker-ce
 sudo docker pull marcrine/bookappbackend
-sudo docker run -p 5000:5000 marcrine/bookappbackend
+sudo docker run -d -p 5000:5000 marcrine/bookappbackend
