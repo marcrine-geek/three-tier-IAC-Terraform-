@@ -16,19 +16,18 @@ resource "aws_lb_target_group" "frontendTG" {
   protocol = "HTTP"
   vpc_id   = aws_vpc.cloudforce_vpc.id
 
-  # health_check {
-  #   enabled             = true
-  #   port                = 80
-  #   interval            = 240
-  #   protocol            = "HTTP"
-  #   path                = "/health"
-  #   matcher             = "200"
-  #   healthy_threshold   = 3
-  #   unhealthy_threshold = 3
-  # }
+  health_check {
+    enabled             = true
+    port                = 80
+    protocol            = "HTTP"
+    path                = "/"
+    matcher             = "200"
+    healthy_threshold   = 3
+    unhealthy_threshold = 3
+  }
 }
 
-resource "aws_lb_listener" "frontendListener" {
+resource "aws_lb_listener" "frontendListenerA" {
   load_balancer_arn = aws_lb.frontend_lb.arn
   port              = "80"
   protocol          = "HTTP"
@@ -38,4 +37,3 @@ resource "aws_lb_listener" "frontendListener" {
     target_group_arn = aws_lb_target_group.frontendTG.arn
   }
 }
-
